@@ -52,9 +52,15 @@ td {
 }
 
 .photo {
-  padding-left: 2.5%;
-  width: 30%;
-  max-width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo img {
+  margin-top: 70px;
+  max-width: 80%;
+  border-radius: 20px;
 }
 
 .self-author {
@@ -78,4 +84,15 @@ ul {
 .publications li {
   list-style-type: "";
   padding-bottom: 10px;
+}
+
+.section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: none;
 }
