@@ -7,124 +7,451 @@
     <meta name="description" content="PhD student at Northeastern University | Research on Bayesian ML, Federated Learning, GNSS Security.">
     <meta name="google-site-verification" content="7pKR21rBXH_lNefbEBi4xQZ55go5awud_qvMdrtLZuM" />
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
     <style>
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    /*  Typography  */
+    :root{
+      --ink:#1b1f23;
+      --muted:#5f6b76;
+      --accent:#043361;      /* deep blue for H2/H3 */
+      --link:#0b61d8;        /* hyperlink blue */
+      --soft:#f3f6fa;        /* soft blue-gray for tag pills */
+    }   
+    html { scroll-behavior: smooth; }
+    body{
+      color:var(--ink);
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    /*  Headings  */
+    h1.name{
+      font-weight:700;
+      letter-spacing:.2px;
+      margin-bottom:.35rem;
+    }
+    h2{
+      font-weight:600;
+      color:var(--accent);
+      margin:2.0rem 0 .6rem;
+      letter-spacing:.2px;
+    }
+    h3{
+      font-weight:500;
+      color:var(--accent);
+      margin:1.2rem 0 .4rem;
+      letter-spacing:.15px;
+    }
+
+    a{ color:var(--link); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    /* Sections */
+    .section > ul {
+      margin-left: 1.2rem;  /* indent top-level internships */
+    }
+
+    .section ul ul {
+      margin-left: 1.6rem;  /* indent task bullets more */
+      margin-top: .35rem;
+    }
+
+    .section ul ul li {
+      list-style-type: circle; /* lighter bullet style for tasks */
+    }
+
+    .section .paper ul {
+      margin-left: 1.5rem;   /* indentation */
+      padding-left: .5rem;   /* extra space before text */
+      margin-top: .4rem;     /* space from the title */
+      margin-bottom: .6rem;  /* space after the list */
+    }
+
+    .section .paper ul li {
+      margin-bottom: .25rem;  /* tighter spacing between bullets */
+      line-height: 1.5;
+    }
+
+    /*  Keywords  */
+    .keyword {
+      display:inline-block;
+      font-size:.85em;
+      padding:.05rem .35rem;
+      border:1px solid var(--muted);
+      border-radius:.25rem;
+      background:transparent;
+      color:var(--muted);
+      margin-right:.3rem;
+    }
+
+    /*  Layout  */
+    nav{
+      text-align:center;
+      margin:18px 0 26px;
+      font-weight:500;
+    }
+    nav a{ padding:0 .45rem; }
+    .section{ margin-top:1.2rem; }
+    .email a{ color:var(--muted); }
+
+    /*  Paper list  */
+    .paper{ margin:.9rem 0 1.1rem; }
+    .paper strong{ font-weight:650; }
+    .paper em{ color:var(--muted); }
+    .self-author{ font-weight:600; }
+    .authors{ margin:.2rem 0 .2rem; }
+    .venue-line{ margin:0; }
+
+  .tag {
+    display:inline-block;
+    font-size:.92em;
+    padding:.08rem .4rem;
+    border-radius:.4rem;
+    background:var(--soft);
+    color:var(--muted);
+    margin-right:.3rem;
+  }
+    .tag a{ text-decoration:none; color:inherit; }
+
+    /* --- Sidebar --- */
+    .sidebar{
+      position: sticky;
+      top: 24px;
+      align-self: start;
+      text-align: left;
+      max-width: 260px;
+    }
+
+    .avatar{
+      width: 200px;
+      height: 250px;
+      border-radius: 20%;
+      object-fit: cover;
+      display: block;
+      margin: 0 0 14px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.08);
+    }
+
+    .sidebar-name{
+      margin: 6px 0 6px;
+      line-height: 1.05;
+      letter-spacing: .2px;
+    }
+    .sidebar-name .line{
+      display: block;
+      font-weight: 500;
+      font-size: 28px;               /* desktop */
+      color: var(--accent);
+    }
+
+    /* Subtext + email */
+    .sidebar-meta{ 
+      color: var(--muted); 
+      margin-top: 8px; 
+      font-size: 14.5px;
+    }
+    .sidebar-email{ 
+      margin-top: 6px; 
+    }
+    .sidebar-email a{ 
+      color: var(--muted); 
+      text-decoration: none; 
+    }
+    .sidebar-email a:hover{ text-decoration: underline; }
+
+    /* Thin divider to breathe */
+    .sidebar-rule{
+      height: 1px;
+      background: linear-gradient(90deg, rgba(0,0,0,0.08), rgba(0,0,0,0));
+      margin: 14px 0 10px;
+    }
+
+    /* Vertical links with emoji column */
+    .linklist{
+      list-style: none;
+      padding: 0;
+      margin: 10px 0 0;
+    }
+    .linklist li{ margin: 8px 0; }
+
+    .linklist a{
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      text-decoration: none;
+      color: var(--link);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .linklist i{
+      flex: 0 0 28px;               /* fixed icon bubble width */
+      width: 28px; height: 28px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--soft);      /* subtle circle */
+      color: var(--accent);         /* deep blue icon */
+      font-size: 14px;              /* icon size */
+    }
+
+    .linklist a:hover span{ text-decoration: underline; }
+    .linklist a:hover i{ background: rgba(4, 51, 97, 0.12); }
+
+    .layout{
+      justify-content: center;
+      width: 100%;
+      padding: 0 24px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 260px 700px;  /* sidebar + content */
+      gap: 56px;
+      max-width: calc(260px + 700px + 56px + 48px);
+    }
+    .content{ max-width: 700px; }
+
+    /* Mobile: */
+    @media (max-width: 700px){
+      .layout{ grid-template-columns: 1fr; gap: 18px; }
+      .sidebar{ position: static; max-width: none; text-align: center; }
+      .avatar{ width: 132px; height: 132px; margin: 0 auto 8px; }
+      .sidebar-name .line{ font-size: 26px; }
+      .sidebar-meta{ font-size: 14px; }
+      .sidebar-links{ display: flex; justify-content: center; }
+      .linklist{ text-align: left; }
+    }
+
+  </style>
   </head>
 
   <body>
     <nav style="text-align: center; margin-bottom: 30px;">
-      <a href="#announcements">Announcements</a> |
-      <a href="#publications">Publications</a> |
-      <a href="#research">Research</a> |
-      <a href="#experience">Experience</a> |
-      <a href="#awards">Awards</a>
+    <a href="#announcements">Announcements</a> &bull;
+    <a href="#papers">Papers</a> &bull;
+    <a href="#research">Research</a> &bull;
+    <a href="#experience">Experience</a> &bull;
+    <a href="#awards">Awards</a>
+  </nav>
+<div class="layout">
+  <aside class="sidebar">
+    <img class="avatar" src="assets/profile_mariona.png" alt="Mariona Jaramillo Civill">
+
+    <h1 class="sidebar-name">
+      <span class="line">Mariona</span>
+      <span class="line">Jaramillo</span>
+      <span class="line">Civill</span>
+    </h1>
+
+    <div class="sidebar-meta">Ph.D. student, Northeastern University</div>
+
+    <div class="sidebar-email">
+      <a href="mailto:jaramillocivill.m@northeastern.edu">jaramillocivill.m@northeastern.edu</a>
+    </div>
+
+    <div class="sidebar-rule" aria-hidden="true"></div>
+
+    <nav class="sidebar-links">
+      <ul class="linklist">
+        <li>
+          <a href="assets/Mariona_Jaramillo_CV.pdf">
+            <i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>CV</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/marionajaramillocivill/">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>LinkedIn</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.es/citations?user=XMzm43EAAAAJ&hl=es">
+            <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span>Google Scholar</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/marionajaramillo2001/">
+            <i class="fa-brands fa-github" aria-hidden="true"></i><span>GitHub</span>
+          </a>
+        </li>
+      </ul>
     </nav>
-    <table>
-      <tbody>
-        <tr>
-          <td class="bio">
-            <h1 class="name center">Mariona Jaramillo Civill</h1>
-            <div class="email center"><a href="mailto:jaramillocivill.m@northeastern.edu">jaramillocivill.m@northeastern.edu</a></div>
+  </aside>
 
-            <p>Hello! I'm a Ph.D. student in Computer Engineering at <a href="https://www.northeastern.edu/">Northeastern University</a>, advised by <a href="https://scholar.google.ca/citations?user=o7bF79sAAAAJ&hl=en">Prof. Pau Closas</a>. I specialize in Bayesian machine learning, federated learning, and GNSS security. I received dual Bachelor's degrees in Mathematics and Computer Science from <a href="https://cfis.upc.edu/ca">CFIS</a>, a selective high‑performance center at the <a href="https://www.upc.edu/en?set_language=en">Polytechnic University of Catalonia (UPC)</a>.</p>
+  <main class="content">
 
-            <p>My research develops principled and robust machine learning models, currently focusing on jammer localization in crowdsourced GNSS environments. I have a strong background in probability theory, statistical modeling, optimization, and deep learning.</p>
-
-            <a href="assets/Mariona_Jaramillo_CV.pdf">CV</a> /
-            <a href="https://www.linkedin.com/in/marionajaramillocivill/">LinkedIn</a> /
-            <a href="https://scholar.google.es/citations?user=XMzm43EAAAAJ&hl=es">Google Scholar</a> /
-            <a href="https://github.com/marionajaramillo2001/">GitHub</a>
-          </td>
-
-          <td class="photo">
-            <img src="assets/profile_mariona.png" width="100%">
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="section">
+      <h2 id="about">About Me</h2>
+      <p>
+        Hello! I'm a Ph.D. student in Computer Engineering at 
+        <a href="https://www.northeastern.edu/">Northeastern University</a>, 
+        advised by <a href="https://scholar.google.ca/citations?user=o7bF79sAAAAJ&hl=en">Prof. Pau Closas</a>. 
+      </p>
+      <p>
+        My research focuses on developing statistical and algorithmic foundations for reliable machine learning in distributed and uncertain environments. 
+        In particular, I design models that combine Bayesian inference and federated optimization to quantify uncertainty, adapt across heterogeneous clients, 
+        and generalize in complex scenarios. Motivated by challenges in GNSS security, these methods enable privacy-preserving jammer localization and robust RF field prediction in urban scenarios.
+      </p>
+      <p>
+        I received dual Bachelor’s degrees in Mathematics and Computer Science from 
+        <a href="https://cfis.upc.edu/ca">CFIS</a>, a selective high-performance program at the 
+        <a href="https://www.upc.edu/en?set_language=en">Polytechnic University of Catalonia (UPC)</a>, 
+        where I built a strong foundation in probability theory, statistical modeling, and optimization.
+      </p>
+    </div>
 
     <div class="section">
       <h2 id="announcements">Announcements</h2>
+      <b>Sep. 2025</b>: Submitted three papers to <a href="https://2026.ieeeicassp.org/">ICASSP 2026</a>.<br>
+      <b>Jun. 2025</b>: Attended the <a href="https://www.startupschool.org/">Y Combinator Startup School</a> event in San Francisco.<br>
       <b>Apr. 2025</b>: I am presenting my work "Jammer Source Localization with Federated Learning" at the IEEE/ION Position, Location and Navigation Symposium <a href="https://www.ion.org/plans/">(PLANS)</a> in Salt Lake City, Utah.<br>
       <b>Mar. 2025</b>: Selected among the Top 10 Computer Science students under 25 in Spain by <a href="https://www.novatalent.com/111/spain"> Nova Talent</a>.<br>
       <b>Nov. 2024</b>: Awarded Best Bachelor's Thesis Prize out of 300+ students at the <a href="https://www.fib.upc.edu/en">Faculty of Informatics of Barcelona (FIB)</a>, UPC.<br>
       <b>Sep. 2024</b>: I have started my Ph.D. journey in Computer Engineering at <a href="https://www.northeastern.edu/">Northeastern University</a>, advised by <a href="https://scholar.google.ca/citations?user=o7bF79sAAAAJ&hl=en">Prof. Pau Closas</a>. My M.S. concentration is in Computer Vision, Machine Learning, and Algorithms.<br>
     </div>
 
-    <div class="section">
-      <h2 id="publications">Publications</h2>
-      <ul class="publications">
-        <li class="pub">
-          <p><span class="pub-title">Jammer Source Localization with Federated Learning</span></p>
-          <p><span class="self-author">Mariona Jaramillo-Civill</span>, Peng Wu, Andrea Nardin, Tales Imbiriba, Pau Closas</p>
-          <p><a href="https://www.ion.org/plans/">IEEE/ION Position, Location and Navigation Symposium (PLANS), 2025</a>. [Oral Presentation, nominated for Best Paper Award]</p>
-        </li>
-      </ul>
+  <div class="section">
+    <h2 id="papers">Papers</h2>
+
+    <h3 id="preprints">Preprints</h3>
+
+    <div class="paper">
+      <p><strong>DPMM-CFL: Clustered Federated Learning via Dirichlet Process Mixture Model Nonparametric Clustering</strong><br/>
+      <span class="authors"><span class="self-author">Mariona Jaramillo-Civill</span>, Peng Wu, Pau Closas.</span><br/>
+      <span class="venue-line"><em>Under review</em>, submitted to <em>IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</em>, 2026.</span><br/>
+      <!-- <span class="tag">[<a href="ARXIV_LINK">arXiv</a>]</span> -->
+      </p>
     </div>
 
-    <div class="section">
-      <h2 id="research">Research</h2>
-      <ul class="publications">
-        <li class="pub">
-          <p><span class="pub-title">Jammer Source Localization with Federated Learning</span></p>
-          <p>We develop a federated learning framework for privacy-preserving GNSS jammer localization from crowdsourced received signal strength (RSS) measurements. By augmenting physics-based models with neural networks, we achieve robust localization and field prediction even in complex urban environments affected by multipath and shadowing. Our work uses decentralized, privacy-preserving optimization, enables unsupervised localization of jammer sources, and incorporates uncertainty modeling — setting a new benchmark for GNSS security in crowdsourced environments.</p>
-        </li>
+    <div class="paper">
+      <p><strong>Bayesian Jammer Localization using Log-linear Mixture of Experts with CNN and Pathloss Models</strong><br/>
+      <span class="authors"><span class="self-author">Mariona Jaramillo-Civill</span>, Luis González-Gudiño, Tales Imbiriba, Pau Closas.</span><br/>
+      <span class="venue-line"><em>Under review</em>, submitted to <em>IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</em>, 2026.</span><br/>
+      <!-- add link when ready: <span class="tag">[<a href="ARXIV_LINK">arXiv</a>]</span> -->
+      </p>
+    </div>
+
+    <div class="paper">
+      <p><strong>Active Jammer Localization via Acquisition-Aware Path Planning</strong><br/>
+      <span class="authors">Luis González-Gudiño, <span class="self-author">Mariona Jaramillo-Civill</span>, Pau Closas, Tales Imbiriba.</span><br/>
+      <span class="venue-line"><em>Under review</em>, submitted to <em>IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</em>, 2026.</span><br/>
+      <!-- <span class="tag">[<a href="ARXIV_LINK">arXiv</a>]</span> -->
+      </p>
+    </div>
+
+    <h3 id="publications">Publications</h3>
+
+    <div class="paper">
+      <p><strong>Jammer Source Localization with Federated Learning</strong><br/>
+      <span class="authors"><span class="self-author">Mariona Jaramillo-Civill</span>, Peng Wu, Andrea Nardin, Tales Imbiriba, Pau Closas.</span><br/>
+      <span class="venue-line"><em>IEEE/ION Position, Location and Navigation Symposium (PLANS)</em>, 2025. <em>[Oral Presentation; Best Paper nominee]</em></span><br/>
+      <span class="tag">[<a href="https://ieeexplore.ieee.org/document/11028278">conference</a>]</span>
+      <span class="tag">[<a href="https://github.com/marionajaramillo2001/jammerLocalization">code</a>]</span>
+      <!-- later: <span class="tag">[<a href="ARXIV_LINK">arXiv</a>]</span> -->
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 id="research">Research</h2>
+
+    <div class="paper">
+      <h3>Clustered Federated Learning (CFL) with Unknown Number of Clusters</h3>
+      <ul>
+        <li>Addresses client heterogeneity in federated learning via Bayesian nonparametric clustering.</li>
+        <li>Uses a <em>Dirichlet Process Mixture Model (DPMM)</em> to dynamically infer the number of clusters while training.</li>
+        <li>Employs restricted Gibbs sampling with split–merge proposals and weighted aggregation.</li>
+        <li>Achieves scalable personalization without fixing the number of clusters <em>K</em> in advance.</li>
       </ul>
-      <p style="text-align: center;">
+      <p>
+        <span class="keyword">CFL</span>
+        <span class="keyword">DPMM</span>
+        <span class="keyword">Split–Merge MCMC</span>
+      </p>
+    </div>
+
+    <div class="paper">
+      <h3>Bayesian, Federated, and Active Learning Approaches for Jammer Localization</h3>
+      <ul>
+        <li>Develops ML models for privacy-preserving GNSS jammer localization in crowdsourced environments.</li>
+        <li><em>APBM:</em> Differentiable pathloss model + neural network, trained with FedAvg for decentralized optimization.</li>
+        <li><em>Bayesian mixtures of models:</em> Pathloss expert combined with CNN to capture contextual effects and quantify uncertainty.</li>
+        <li><em>Active learning:</em> Used to guide data collection toward the most informative regions.</li>
+        <li>Improves localization accuracy and robustness in complex multipath-affected urban settings.</li>
+      </ul>
+
+      <p style="text-align: center; margin-top: 1rem;">
         <img src="assets/APBM_fig.png" alt="APBM Prediction in Urban Scenario" width="90%">
       </p>
       <p style="text-align: center; font-size: 14px;">
         <i>Predicted jammer field and source localization in an urban scenario using the Augmented Physics-Based Model (APBM).</i>
       </p>
-    </div>
 
-    <div class="section">
-      <h2 id="experience">Experience</h2>
-      <ul>
-        <li>
-          <strong>ML and GNSS Engineer Intern</strong>, <a href="https://albora.ai/">Albora Technologies</a>, Barcelona, Spain (Summer 2024)<br>
-          Developed a robust outlier detection algorithm for RTK GNSS positioning using Kalman filtering and RTKLIB, improving smartphone navigation accuracy using the Google Smartphone Decimeter Challenge dataset. 
-          Contributed to the European Union's <a href="https://neuropuls.eu/ "> Neuropuls</a> initiative focused on neuromorphic technology for jammer classification.
-        </li>
-        <li>
-          <strong>Data Analyst and Software Developer Intern</strong>, Indaru, Barcelona, Spain (Summer 2022, Summer 2023)<br>
-          Designed a data-driven marketing optimization dashboard using R and Shiny.
-        </li>
-        <li>
-          <strong>Web Developer Intern</strong>, Wikiloc Outdoor Navigation, Girona, Spain (Summer 2021)<br>
-          Developed backend modules for personalized static maps using NodeJS and VueJS.
-        </li>
-      </ul>
-    </div>
+      <p>
+        <span class="keyword">APBM</span>
+        <span class="keyword">CNN</span>
+        <span class="keyword">FedAvg</span>
+        <span class="keyword">Bayesian Mixtures</span>
+        <span class="keyword">Active Learning</span>
+      </p>
+    </div>  
 
-    <div class="section">
-      <h2 id="awards">Awards</h2>
-      <ul>
-        <li><strong>Top 10 Under 25 Computer Science Awardee</strong>, <a href="https://www.novatalent.com/111/spain"> Nova Talent</a>, Spain (2025)</li>
-        <li><strong>Best Bachelor's Thesis Prize</strong>, <a href="https://www.fib.upc.edu/en">Faculty of Informatics of Barcelona</a>, <a href="https://www.upc.edu/en?set_language=en">UPC</a> (2024) — out of 300+ students</li>
-        <li><strong><a href="https://cfis.upc.edu/ca">CFIS</a> Fellowship Recipient</strong>, <a href="https://www.upc.edu/en?set_language=en">Polytechnic University of Catalonia</a> (2019)</li>
-        <li><strong>Top 6 Ranking (9.7/10)</strong> in Catalan University Entrance Exams (2019) — out of 30,000 students</li>
-      </ul>
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
-          const sections = document.querySelectorAll('.section');
-        
-          function checkVisibility() {
-            sections.forEach(section => {
-              const rect = section.getBoundingClientRect();
-              if (rect.top <= window.innerHeight * 0.9) {
-                section.classList.add('visible');
-              }
-            });
-          }
-        
-          window.addEventListener('scroll', checkVisibility);
-          checkVisibility();
-        });
-        </script>
-      </div>
+
+  <div class="section">
+    <h2 id="experience">Internships</h2>
+    <ul>
+      <li>
+        <strong>ML & GNSS Engineer Intern</strong>, <a href="https://albora.ai/">Albora Technologies</a>, Barcelona, Spain (Summer 2024)
+        <ul>
+          <li>Developed a robust outlier detection algorithm for RTK GNSS positioning using Kalman filtering and RTKLIB, improving smartphone navigation accuracy using the Google Smartphone Decimeter Challenge dataset.</li>
+          <li>Contributed to the European Union’s <a href="https://neuropuls.eu/">NEUROPULS</a> initiative focused on neuromorphic technology for jammer classification.</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Data Analyst & Software Developer Intern</strong>, Indaru, Barcelona, Spain (Summers 2022 & 2023)
+        <ul>
+          <li>Designed a data-driven marketing mix modeling optimization dashboard using R and Shiny.</li>
+        </ul>
+      </li>
+
+      <li>
+        <strong>Web Developer Intern</strong>, Wikiloc Outdoor Navigation, Girona, Spain (Summer 2021)
+        <ul>
+          <li>Developed backend modules for personalized static maps using NodeJS and VueJS.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2 id="awards">Awards</h2>
+    <ul>
+      <li><strong>Top 10 Under 25 Computer Science Awardee</strong>, <a href="https://www.novatalent.com/111/spain"> Nova Talent</a>, Spain (2025)</li>
+      <li><strong>Best Bachelor's Thesis Prize</strong>, <a href="https://www.fib.upc.edu/en">Faculty of Informatics of Barcelona</a>, <a href="https://www.upc.edu/en?set_language=en">UPC</a> (2024) — out of 300+ students</li>
+      <li><strong><a href="https://cfis.upc.edu/ca">CFIS</a> Fellowship Recipient</strong>, <a href="https://www.upc.edu/en?set_language=en">Polytechnic University of Catalonia</a> (2019)</li>
+      <li><strong>Top 6 Ranking (9.7/10)</strong> in Catalan University Entrance Exams (2019) — out of 30,000 students</li>
+    </ul>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const sections = document.querySelectorAll('.section');
+      
+        function checkVisibility() {
+          sections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight * 0.9) {
+              section.classList.add('visible');
+            }
+          });
+        }
+      
+        window.addEventListener('scroll', checkVisibility);
+        checkVisibility();
+      });
+      </script>
+    </div>
+  </main>
+  </div> 
   </body>
 </html>
