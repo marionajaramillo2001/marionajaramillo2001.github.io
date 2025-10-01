@@ -1,4 +1,3 @@
-
 /* Prevent horizontal scroll issues */
 html { 
   overflow-x: hidden; 
@@ -218,8 +217,10 @@ nav a {
   padding-top: 0;
 }
 
-.section > ul {
-  margin-left: 1.2rem;
+/* Consistent bullets for all sections */
+.section ul {
+  margin-left: 1.5rem;
+  padding-left: 0;
 }
 
 .section ul ul {
@@ -233,7 +234,7 @@ nav a {
 
 .section .paper ul {
   margin-left: 1.5rem;
-  padding-left: .5rem;
+  padding-left: 0;
   margin-top: .4rem;
   margin-bottom: .6rem;
 }
