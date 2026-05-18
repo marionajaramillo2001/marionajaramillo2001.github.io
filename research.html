@@ -33,6 +33,7 @@
 
 
 
+
     <div class="layout">
       <!-- @include-start includes/sidebar.html -->
       <aside class="sidebar">
@@ -123,6 +124,7 @@
 
 
 
+
       <main class="content">
         <div class="section research-page">
           <h1 class="page-title">Research</h1>
@@ -160,7 +162,6 @@
             <div class="research-block research-solution">
               <span class="research-label">Solution</span>
               <p>A federated framework that discovers how many client groups are needed, assigns clients adaptively, and aggregates updates in a way that respects heterogeneity&mdash;without fixing the cluster count upfront.</p>
-              <p class="research-paper-ref"><a href="publications.html#year-2026">Paper · ICASSP 2026</a></p>
               <p>
                 <span class="keyword">CFL</span>
                 <span class="keyword">DPMM</span>
@@ -182,21 +183,24 @@
               <p class="research-subquestion">How can we learn to localize jammers collaboratively while keeping raw GNSS data private?</p>
               <div class="research-block research-approach">
                 <span class="research-label">Approach</span>
-                <h3>Federated localization with physics-augmented models (APBM)</h3>
                 <p>
-                  At <a href="https://www.ion.org/plans/">IEEE/ION PLANS 2025</a>, I presented <a href="publications.html#year-2025">&ldquo;Jammer Source Localization with Federated Learning&rdquo;</a>. We combine a differentiable path-loss model with a neural network&mdash;the <em>Augmented Physics-Based Model (APBM)</em>&mdash;and train it with federated averaging (FedAvg) on crowdsourced RSS measurements.
+                  In <a href="publications.html#year-2025">Jammer Source Localization with Federated Learning</a>, we combine a differentiable path-loss model with a neural network&mdash;the <em>Augmented Physics-Based Model (APBM)</em>&mdash;and train it with federated averaging (FedAvg) on crowdsourced RSS measurements.
                 </p>
+                <ul>
+                  <li>Train collaboratively without sharing raw GNSS traces.</li>
+                  <li>Embed propagation physics in a differentiable model alongside learned residuals.</li>
+                  <li>Estimate jammer location from crowdsourced signal-strength measurements.</li>
+                </ul>
                 <p class="research-figure">
-                  <img src="assets/research_pics/plans.png" alt="Jammer source localization with federated learning at PLANS 2025">
+                  <img src="assets/research_pics/plans.png" alt="Jammer source localization with federated learning">
                 </p>
                 <p class="research-caption">
-                  <i>Privacy-preserving jammer localization with federated, physics-augmented learning (PLANS 2025).</i>
+                  <i>Privacy-preserving jammer localization with federated, physics-augmented learning.</i>
                 </p>
               </div>
               <div class="research-block research-solution">
                 <span class="research-label">Solution</span>
                 <p>Clients jointly learn a jammer signal-propagation model and its location without sharing raw traces&mdash;combining on-device privacy with physics-informed learning.</p>
-                <p class="research-paper-ref"><a href="publications.html#year-2025">Paper · PLANS 2025</a></p>
               </div>
             </article>
 
@@ -204,21 +208,24 @@
               <p class="research-subquestion">How can we stay grounded in physics while learning from complex urban measurements?</p>
               <div class="research-block research-approach">
                 <span class="research-label">Approach</span>
-                <h3>Bayesian jammer localization with hybrid physics and deep learning</h3>
                 <p>
-                  In <a href="publications.html#year-2026">&ldquo;Bayesian Jammer Localization with a Hybrid CNN and Path-Loss Mixture of Experts&rdquo;</a> (ICASSP 2026), a path-loss expert and a CNN capture urban context and multipath effects, while a Bayesian mixture-of-experts framework quantifies uncertainty.
+                  In <a href="publications.html#year-2026">Bayesian Jammer Localization with a Hybrid CNN and Path-Loss Mixture of Experts</a>, we pair a path-loss expert with a CNN that captures urban context and multipath effects, combined in a Bayesian mixture-of-experts framework that quantifies uncertainty.
                 </p>
+                <ul>
+                  <li>Separate physics-based propagation from data-driven urban effects.</li>
+                  <li>Weight experts probabilistically instead of committing to a single model.</li>
+                  <li>Report uncertainty when measurements are sparse or ambiguous.</li>
+                </ul>
                 <p class="research-figure">
                   <img src="assets/research_pics/icassp_jammer_loc.png" alt="Bayesian jammer localization with hybrid CNN and path-loss mixture of experts">
                 </p>
                 <p class="research-caption">
-                  <i>Bayesian jammer localization with a hybrid CNN and path-loss mixture of experts (ICASSP 2026).</i>
+                  <i>Bayesian jammer localization with a hybrid CNN and path-loss mixture of experts.</i>
                 </p>
               </div>
               <div class="research-block research-solution">
                 <span class="research-label">Solution</span>
                 <p>A hybrid model that learns from data-driven patterns and physical propagation, with uncertainty estimates that reflect when the scene is ambiguous.</p>
-                <p class="research-paper-ref"><a href="publications.html#year-2026">Paper · ICASSP 2026</a></p>
               </div>
             </article>
 
@@ -226,21 +233,24 @@
               <p class="research-subquestion">If measurements are sparse or unevenly distributed, where should we collect the next ones?</p>
               <div class="research-block research-approach">
                 <span class="research-label">Approach</span>
-                <h3>Active, acquisition-aware data collection</h3>
                 <p>
-                  In <a href="publications.html#year-2026">&ldquo;Active Jammer Localization via Acquisition-Aware Path Planning&rdquo;</a> (ICASSP 2026, presented by Luis Gonz&aacute;lez-Gudi&ntilde;o), the system plans sensing paths that gather the most informative measurements for refining localization.
+                  In <a href="publications.html#year-2026">Active Jammer Localization via Acquisition-Aware Path Planning</a>, we plan sensing paths that prioritize measurements expected to reduce localization uncertainty most.
                 </p>
+                <ul>
+                  <li>Score candidate paths by expected information gain for jammer localization.</li>
+                  <li>Adapt data collection when crowdsourced coverage is uneven or sparse.</li>
+                  <li>Close the loop between inference and where to sense next.</li>
+                </ul>
                 <p class="research-figure research-figure--compact">
                   <img src="assets/research_pics/icassp_active.png" alt="Active jammer localization via acquisition-aware path planning">
                 </p>
                 <p class="research-caption">
-                  <i>Active jammer localization via acquisition-aware path planning (ICASSP 2026).</i>
+                  <i>Active jammer localization via acquisition-aware path planning.</i>
                 </p>
               </div>
               <div class="research-block research-solution">
                 <span class="research-label">Solution</span>
                 <p>Acquisition-aware path planning that improves localization when crowdsourced data alone are insufficient.</p>
-                <p class="research-paper-ref"><a href="publications.html#year-2026">Paper · ICASSP 2026</a></p>
               </div>
             </article>
 

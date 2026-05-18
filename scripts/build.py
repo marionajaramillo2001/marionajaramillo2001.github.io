@@ -16,11 +16,24 @@ PAGES: dict[str, str] = {
     "research.html": "research",
 }
 
-START_RE = re.compile(r"<!--\s*@include-start\s+(\S+)(?:\s+(\w+))?\s*-->")
+START_RE = re.compile(r"<!--\s*@include-start\s+(\S+)(?:\s+(\w+))?(?:\s+(\w+))?\s*-->")
 END_MARKER = "<!-- @include-end -->"
+PAPER_RE = re.compile(
+    r'<article class="paper paper-card">.*?</article>',
+    re.DOTALL | re.IGNORECASE,
+)
+TEASER_LIMIT = 2
 
 
-def load_partial(rel_path: str, page_key: str | None = None) -> str:
+def publications_teaser(html: str, limit: int = TEASER_LIMIT) -> str:
+    articles = PAPER_RE.findall(html)
+    if not articles:
+        return html
+    body = "\n\n              ".join(articles[:limit])
+    return f'<div class="pub-list">\n              {body}\n            </div>\n'
+
+
+def load_partial(rel_path: str, page_key: str | None = None, mode: str | None = None) -> str:
     path = ROOT / rel_path
     if not path.is_file():
         raise FileNotFoundError(f"Missing partial: {path}")
@@ -37,6 +50,9 @@ def load_partial(rel_path: str, page_key: str | None = None) -> str:
             value = ' class="active"' if key == page_key else ""
             text = text.replace("{{" + token + "}}", value)
 
+    if "publications-list" in rel_path and mode == "teaser":
+        text = publications_teaser(text)
+
     return text.rstrip() + "\n"
 
 
@@ -52,11 +68,12 @@ def inject_includes(html: str, page_key: str) -> str:
     out.append(html[i : match.start()])
     rel_path = match.group(1)
     arg = match.group(2) or page_key
+    mode = match.group(3)
     end = html.find(END_MARKER, match.end())
     if end == -1:
       raise ValueError(f"Missing {END_MARKER} after {match.group(0)}")
 
-    partial = load_partial(rel_path, arg)
+    partial = load_partial(rel_path, arg, mode)
     out.append(match.group(0))
     out.append("\n")
     out.append(partial)
@@ -81,7 +98,9 @@ def main() -> int:
         else:
             print(f"unchanged {filename}")
 
-    print("Done. Edit includes/sidebar.html or includes/topnav.html, then re-run this script.")
+    print(
+        "Done. Edit includes/*.html (sidebar, topnav, publications-list), then re-run this script."
+    )
     return 0
 
 

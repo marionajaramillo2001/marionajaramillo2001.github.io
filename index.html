@@ -34,6 +34,7 @@
 
 
 
+
 <div class="layout">
   <!-- @include-start includes/sidebar.html -->
       <aside class="sidebar">
@@ -124,12 +125,13 @@
 
 
 
+
   <main class="content">
 
     <div class="section">
       <h2 id="about">About Me</h2>
       <p>
-        Hello! I'm a Ph.D. student in Computer Engineering at
+        Hello! I am Mariona, a second-year Ph.D. student in Computer Engineering at
         <a href="https://www.northeastern.edu/">Northeastern University</a>,
         advised by <a href="https://scholar.google.ca/citations?user=o7bF79sAAAAJ&hl=en">Prof. Pau Closas</a>.
       </p>
@@ -202,27 +204,41 @@
       <h2 id="papers">Publications</h2>
       <p>Peer-reviewed work on Bayesian machine learning, federated learning, and GNSS security. <a href="publications.html"><strong>View full list with figures &rarr;</strong></a></p>
 
-      <div class="pub-list">
-        <article class="paper paper-card">
-          <div class="paper-thumb">
-            <img src="assets/papers_pics/icassp_dpmm_cfl_schema.png" alt="DPMM-CFL schema">
-          </div>
-          <div class="paper-body">
-            <p class="paper-title"><strong>DPMM-CFL: Clustered Federated Learning via Dirichlet Process Mixture Model Nonparametric Clustering</strong></p>
-            <p class="venue-line"><em>ICASSP</em>, 2026 &middot; <em>Oral</em></p>
-          </div>
-        </article>
-
-        <article class="paper paper-card">
-          <div class="paper-thumb">
-            <img src="assets/papers_pics/icassp_jammer_loc.png" alt="Bayesian jammer localization">
-          </div>
-          <div class="paper-body">
-            <p class="paper-title"><strong>Bayesian Jammer Localization with a Hybrid CNN and Path-Loss Mixture of Experts</strong></p>
-            <p class="venue-line"><em>ICASSP</em>, 2026 &middot; <em>Poster</em></p>
-          </div>
-        </article>
+      <!-- @include-start includes/publications-list.html about teaser -->
+<div class="pub-list">
+              <article class="paper paper-card">
+      <div class="paper-thumb">
+        <img src="assets/papers_pics/icassp_dpmm_cfl_schema.png" alt="DPMM-CFL clustered federated learning schema">
       </div>
+      <div class="paper-body">
+        <p class="paper-title"><strong>DPMM-CFL: Clustered Federated Learning via Dirichlet Process Mixture Model Nonparametric Clustering</strong></p>
+        <p class="authors"><span class="self-author">Mariona Jaramillo-Civill</span>, Peng Wu, Pau Closas.</p>
+        <p class="venue-line"><em>IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</em>. <em>[Oral presentation]</em></p>
+        <p class="tag-row">
+          <span class="tag"><a href="https://www.researchgate.net/publication/404389034_DPMM-CFL_Clustered_Federated_Learning_via_Dirichlet_Process_Mixture_Model_Nonparametric_Clustering">PAPER</a></span>
+          <span class="tag"><a href="https://ieeexplore.ieee.org/abstract/document/11462737">IEEE</a></span>
+          <span class="tag"><a href="https://arxiv.org/abs/2510.07132">ARXIV</a></span>
+        </p>
+      </div>
+    </article>
+
+              <article class="paper paper-card">
+      <div class="paper-thumb">
+        <img src="assets/papers_pics/icassp_jammer_loc.png" alt="Bayesian jammer localization with hybrid CNN and path-loss mixture of experts">
+      </div>
+      <div class="paper-body">
+        <p class="paper-title"><strong>Bayesian Jammer Localization with a Hybrid CNN and Path-Loss Mixture of Experts</strong></p>
+        <p class="authors"><span class="self-author">Mariona Jaramillo-Civill</span>, Luis Gonz&aacute;lez-Gudi&ntilde;o, Tales Imbiriba, Pau Closas.</p>
+        <p class="venue-line"><em>IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)</em>. <em>[Poster presentation]</em></p>
+        <p class="tag-row">
+          <span class="tag"><a href="https://www.researchgate.net/publication/404385711_Bayesian_Jammer_Localization_with_a_Hybrid_CNN_and_Path-Loss_Mixture_of_Experts">PAPER</a></span>
+          <span class="tag"><a href="https://ieeexplore.ieee.org/abstract/document/11462213">IEEE</a></span>
+        </p>
+      </div>
+    </article>
+            </div>
+<!-- @include-end -->
+
     </div>
 
     <div class="section">
@@ -244,7 +260,7 @@
           <span class="research-label">Motivation</span>
           <p class="research-question">Can we localize a jammer from crowdsourced GNSS measurements in urban multipath and building shadowing?</p>
         </div>
-        <p class="research-teaser-outcome"><strong>Approach:</strong> Federated physics-augmented models (PLANS), Bayesian CNN&ndash;path-loss hybrids (ICASSP), and acquisition-aware active sensing when data are sparse.</p>
+        <p class="research-teaser-outcome"><strong>Approach:</strong> Federated physics-augmented models, Bayesian CNN&ndash;path-loss hybrids, and acquisition-aware active sensing when data are sparse.</p>
       </article>
 
       <p><a href="research.html"><strong>Read full motivation, approach &amp; solution &rarr;</strong></a></p>
