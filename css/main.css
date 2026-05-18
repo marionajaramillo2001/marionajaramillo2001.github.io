@@ -77,7 +77,7 @@ img, video, canvas, iframe {
   flex-wrap: wrap;
   gap: 8px;
   justify-content: center;
-  margin: 18px 0 26px;
+  margin: 18px 0 40px;
   font-weight: 500;
   text-transform: lowercase;
 }
@@ -139,13 +139,13 @@ img, video, canvas, iframe {
   width: 100%;
   max-width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.18);
-  margin-top: 0.2rem;
-  margin-bottom: 1rem;
+  margin-top: 0.45rem;
+  margin-bottom: 1.15rem;
 }
 
 .content > .section:first-of-type > h2,
 .content > .section:first-of-type > .page-title {
-  margin-top: 0;
+  margin-top: 0.35rem;
 }
 
 .content .section {
