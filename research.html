@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Research — Mariona Jaramillo Civill</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Research by Mariona Jaramillo Civill on Bayesian ML, federated learning, and GNSS jammer localization.">
+    <meta property="og:site_name" content="Mariona Jaramillo-Civill">
+    <meta property="og:title" content="Research — Mariona Jaramillo-Civill">
+    <meta property="og:description" content="Research on DPMM-CFL, physics-informed GNSS jammer localization, federated learning, and active sensing.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://marionajaramillo2001.github.io/research.html">
+    <meta property="og:image" content="https://marionajaramillo2001.github.io/assets/profile_mariona.png">
+    <meta property="og:image:alt" content="Mariona Jaramillo-Civill">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Research — Mariona Jaramillo-Civill">
+    <meta name="twitter:description" content="Research on DPMM-CFL, physics-informed GNSS jammer localization, federated learning, and active sensing.">
+    <meta name="twitter:image" content="https://marionajaramillo2001.github.io/assets/profile_mariona.png">
+    <meta name="google-site-verification" content="7pKR21rBXH_lNefbEBi4xQZ55go5awud_qvMdrtLZuM" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+  </head>
+
+  <body>
+    <!-- @include-start includes/topnav.html research -->
+    <nav class="topnav">
+      <a href="index.html">about</a> &bull;
+      <a href="publications.html">publications</a> &bull;
+      <a href="research.html" class="active">research</a>
+    </nav>
+<!-- @include-end -->
+
+
+
+
+    <div class="layout">
+      <!-- @include-start includes/sidebar.html -->
+      <aside class="sidebar">
+        <div class="sidebar-inner">
+          <img class="avatar" src="assets/profile_mariona.png" alt="Mariona Jaramillo Civill">
+
+          <h1 class="sidebar-name">
+            <span class="line first">Mariona</span>
+            <span class="line">Jaramillo-Civill</span>
+          </h1>
+
+          <div class="sidebar-meta">CS Ph.D. Candidate @Northeastern</div>
+          <div class="sidebar-location">Boston, MA</div>
+
+          <nav class="sidebar-links">
+            <ul class="linklist">
+              <li>
+                <a href="mailto:jaramillocivill.m@northeastern.edu">
+                  <i class="fa-solid fa-envelope" aria-hidden="true"></i><span>email</span>
+                </a>
+              </li>
+              <li>
+                <a href="assets/Mariona_Jaramillo_CV.pdf">
+                  <i class="fa-solid fa-file-lines" aria-hidden="true"></i><span>CV</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://scholar.google.es/citations?user=XMzm43EAAAAJ&hl=es">
+                  <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i><span>google scholar</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/marionajaramillocivill/">
+                  <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i><span>linkedin</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/marionajaramillo2001/">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i><span>github</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+
+          <div class="sidebar-rule" aria-hidden="true"></div>
+
+          <div class="sidebar-bio">
+            <div class="bio-entry">
+              <div class="bio-org"><a href="https://www.northeastern.edu/">Northeastern University</a></div>
+              <div class="bio-role">Ph.D. Candidate, Computer Engineering</div>
+              <div class="bio-when"><span class="bio-current">[current]</span></div>
+            </div>
+
+            <div class="bio-entry">
+              <div class="bio-org"><a href="https://www.northeastern.edu/">Northeastern University</a></div>
+              <div class="bio-role">M.S., Computer Vision, Machine Learning, and Algorithms</div>
+              <div class="bio-when">2024-2026</div>
+            </div>
+
+            <div class="bio-entry">
+              <div class="bio-org"><a href="https://www.upc.edu/en?set_language=en">Universitat Politècnica de Catalunya</a> (<a href="https://cfis.upc.edu/ca">CFIS</a>)</div>
+              <div class="bio-role">Dual B.S., Mathematics and Computer Science</div>
+              <div class="bio-when">2019&ndash;2024</div>
+            </div>
+
+            <div class="bio-entry">
+              <div class="bio-org"><a href="https://albora.ai/">Albora Technologies</a></div>
+              <div class="bio-role">ML Engineer Intern</div>
+              <div class="bio-when">Summer 2024</div>
+            </div>
+
+            <div class="bio-entry">
+              <div class="bio-org">Indaru</div>
+              <div class="bio-role">Data Scientist Intern</div>
+              <div class="bio-when">Summers 2022 &amp; 2023</div>
+            </div>
+
+            <div class="bio-entry">
+              <div class="bio-org"><a href="https://www.wikiloc.com/">Wikiloc</a></div>
+              <div class="bio-role">SWE Intern</div>
+              <div class="bio-when">Summer 2021</div>
+            </div>
+          </div>
+        </div>
+      </aside>
+<!-- @include-end -->
+
+
+
+
+      <main class="content">
+        <div class="section research-page">
+          <h1 class="page-title">Research</h1>
+          <p class="muted-note">
+            Bayesian and statistical machine learning for robust sensing and distributed learning.
+          </p>
+
+          <div class="paper" id="cfl">
+            <h2>Clustered Federated Learning (CFL) with Unknown Number of Clusters</h2>
+
+            <div class="research-block research-motivation">
+              <span class="research-label">Motivation</span>
+              <p class="research-question">What if clients are heterogeneous and naturally divided into latent groups&mdash;without knowing how many groups exist in advance?</p>
+              <p>In federated learning, clients often differ in data distribution, sensing conditions, or behavior. Treating them as one homogeneous pool can hurt performance; fixing the number of clusters <em>K</em> in advance is often unrealistic.</p>
+            </div>
+
+            <div class="research-block research-approach">
+              <span class="research-label">Approach</span>
+              <p>
+                In <a href="publications.html#year-2026">DPMM-CFL</a>, we use a <em>Dirichlet Process Mixture Model (DPMM)</em> for Bayesian nonparametric clustering: the model can grow or merge client groups during training. Restricted Gibbs sampling with split&ndash;merge proposals and weighted aggregation enables scalable clustered federated learning across heterogeneous participants.
+              </p>
+              <ul>
+                <li>Learn cluster structure dynamically instead of pre-specifying <em>K</em>.</li>
+                <li>Personalize models per latent group while training jointly.</li>
+                <li>Support privacy-preserving collaboration when clients are naturally divided.</li>
+              </ul>
+              <p class="research-figure">
+                <img src="assets/research_pics/icassp_dpmm_cfl_schema.png" alt="DPMM-CFL clustered federated learning schema">
+              </p>
+              <p class="research-caption">
+                <i>DPMM-CFL: nonparametric client clustering and weighted aggregation in federated learning.</i>
+              </p>
+            </div>
+
+            <div class="research-block research-solution">
+              <span class="research-label">Solution</span>
+              <p>A federated framework that discovers how many client groups are needed, assigns clients adaptively, and aggregates updates in a way that respects heterogeneity&mdash;without fixing the cluster count upfront.</p>
+              <p class="research-paper-ref"><a href="publications.html#year-2026">Paper · ICASSP 2026</a></p>
+              <p>
+                <span class="keyword">CFL</span>
+                <span class="keyword">DPMM</span>
+                <span class="keyword">Split&ndash;Merge MCMC</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="paper" id="jammer">
+            <h2>Bayesian, Federated, and Active Learning Approaches for Jammer Localization</h2>
+
+            <div class="research-block research-motivation">
+              <span class="research-label">Motivation</span>
+              <p class="research-question">Can we localize a jammer from crowdsourced GNSS measurements in challenging urban environments affected by multipath and building shadowing?</p>
+              <p>GNSS underpins transportation, aviation, and autonomous systems, but remains vulnerable to intentional interference. Detecting jamming is not enough&mdash;we need to estimate <em>where</em> the source is, often from sparse, privacy-sensitive measurements shared by many users.</p>
+            </div>
+
+            <article class="research-thread">
+              <p class="research-subquestion">How can we learn to localize jammers collaboratively while keeping raw GNSS data private?</p>
+              <div class="research-block research-approach">
+                <span class="research-label">Approach</span>
+                <h3>Federated localization with physics-augmented models (APBM)</h3>
+                <p>
+                  At <a href="https://www.ion.org/plans/">IEEE/ION PLANS 2025</a>, I presented <a href="publications.html#year-2025">&ldquo;Jammer Source Localization with Federated Learning&rdquo;</a>. We combine a differentiable path-loss model with a neural network&mdash;the <em>Augmented Physics-Based Model (APBM)</em>&mdash;and train it with federated averaging (FedAvg) on crowdsourced RSS measurements.
+                </p>
+                <p class="research-figure">
+                  <img src="assets/research_pics/plans.png" alt="Jammer source localization with federated learning at PLANS 2025">
+                </p>
+                <p class="research-caption">
+                  <i>Privacy-preserving jammer localization with federated, physics-augmented learning (PLANS 2025).</i>
+                </p>
+              </div>
+              <div class="research-block research-solution">
+                <span class="research-label">Solution</span>
+                <p>Clients jointly learn a jammer signal-propagation model and its location without sharing raw traces&mdash;combining on-device privacy with physics-informed learning.</p>
+                <p class="research-paper-ref"><a href="publications.html#year-2025">Paper · PLANS 2025</a></p>
+              </div>
+            </article>
+
+            <article class="research-thread">
+              <p class="research-subquestion">How can we stay grounded in physics while learning from complex urban measurements?</p>
+              <div class="research-block research-approach">
+                <span class="research-label">Approach</span>
+                <h3>Bayesian jammer localization with hybrid physics and deep learning</h3>
+                <p>
+                  In <a href="publications.html#year-2026">&ldquo;Bayesian Jammer Localization with a Hybrid CNN and Path-Loss Mixture of Experts&rdquo;</a> (ICASSP 2026), a path-loss expert and a CNN capture urban context and multipath effects, while a Bayesian mixture-of-experts framework quantifies uncertainty.
+                </p>
+                <p class="research-figure">
+                  <img src="assets/research_pics/icassp_jammer_loc.png" alt="Bayesian jammer localization with hybrid CNN and path-loss mixture of experts">
+                </p>
+                <p class="research-caption">
+                  <i>Bayesian jammer localization with a hybrid CNN and path-loss mixture of experts (ICASSP 2026).</i>
+                </p>
+              </div>
+              <div class="research-block research-solution">
+                <span class="research-label">Solution</span>
+                <p>A hybrid model that learns from data-driven patterns and physical propagation, with uncertainty estimates that reflect when the scene is ambiguous.</p>
+                <p class="research-paper-ref"><a href="publications.html#year-2026">Paper · ICASSP 2026</a></p>
+              </div>
+            </article>
+
+            <article class="research-thread">
+              <p class="research-subquestion">If measurements are sparse or unevenly distributed, where should we collect the next ones?</p>
+              <div class="research-block research-approach">
+                <span class="research-label">Approach</span>
+                <h3>Active, acquisition-aware data collection</h3>
+                <p>
+                  In <a href="publications.html#year-2026">&ldquo;Active Jammer Localization via Acquisition-Aware Path Planning&rdquo;</a> (ICASSP 2026, presented by Luis Gonz&aacute;lez-Gudi&ntilde;o), the system plans sensing paths that gather the most informative measurements for refining localization.
+                </p>
+                <p class="research-figure research-figure--compact">
+                  <img src="assets/research_pics/icassp_active.png" alt="Active jammer localization via acquisition-aware path planning">
+                </p>
+                <p class="research-caption">
+                  <i>Active jammer localization via acquisition-aware path planning (ICASSP 2026).</i>
+                </p>
+              </div>
+              <div class="research-block research-solution">
+                <span class="research-label">Solution</span>
+                <p>Acquisition-aware path planning that improves localization when crowdsourced data alone are insufficient.</p>
+                <p class="research-paper-ref"><a href="publications.html#year-2026">Paper · ICASSP 2026</a></p>
+              </div>
+            </article>
+
+            <div class="research-block research-outcome">
+              <span class="research-label">Overall takeaway</span>
+              <p>Together, these works build toward accurate, robust jammer localization in multipath-affected cities: federated training for privacy, Bayesian hybrids for uncertainty-aware inference, and active planning when data are scarce.</p>
+              <p>
+                <span class="keyword">APBM</span>
+                <span class="keyword">CNN</span>
+                <span class="keyword">FedAvg</span>
+                <span class="keyword">Bayesian Mixtures</span>
+                <span class="keyword">Active Learning</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
